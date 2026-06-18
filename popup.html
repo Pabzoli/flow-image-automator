@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flow Image Automator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Flow Image Automator</h1>
+    
+    <div class="section">
+      <label class="label">Global Reference Image (Required)</label>
+      <div class="file-input-wrapper">
+        <input type="file" id="referenceImage" accept="image/*" />
+        <label for="referenceImage" class="file-label">📁 Choose Reference Image</label>
+      </div>
+      <div id="referencePreview" class="preview-container"></div>
+      <p class="hint">This reference image will be applied to all prompts</p>
+    </div>
+
+    <div class="section">
+      <label class="label">Prompts (one per line/paragraph)</label>
+      <textarea id="promptsInput" placeholder="Paste your prompts here...&#10;Each prompt should be separated by a line break&#10;&#10;Example:&#10;a cat dancing&#10;a dog running&#10;a bird flying"></textarea>
+      <p class="hint">Prompts will be split by line breaks</p>
+    </div>
+
+    <div class="section">
+      <label class="label">Configuration</label>
+      <div class="config-row">
+        <span>Model:</span>
+        <span class="value">Nano Banana 2</span>
+      </div>
+      <div class="config-row">
+        <span>Aspect Ratio:</span>
+        <span class="value">Portrait (9:16)</span>
+      </div>
+      <div class="config-row">
+        <span>Quality:</span>
+        <span class="value">1K - Original</span>
+      </div>
+      <div class="config-row">
+        <span>Cooldown:</span>
+        <span class="value">10-15s Random</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <label class="label">Download Settings</label>
+      <div class="config-row">
+        <span>Download Folder:</span>
+        <input type="text" id="downloadFolder" placeholder="flow-images" value="flow-images" />
+      </div>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="progress" class="progress-container" style="display: none;">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <p id="progressText" class="progress-text"></p>
+    </div>
+
+    <button id="startButton" class="btn btn-primary">🚀 Start Generation</button>
+    <button id="stopButton" class="btn btn-danger" style="display: none;">⏹️ Stop</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
